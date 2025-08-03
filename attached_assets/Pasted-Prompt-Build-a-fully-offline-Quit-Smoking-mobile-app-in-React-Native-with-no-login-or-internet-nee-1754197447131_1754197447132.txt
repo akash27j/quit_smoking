@@ -1,0 +1,207 @@
+Prompt: "Build a fully offline Quit Smoking mobile app in React Native with no login or internet needed. All user data (counts, quotes, journal entries, settings) is stored locally using a persistent storage system (AsyncStorage/MMKV/sqlite). Design should be motivational, simple, and clear."
+✅ Key Features (Offline, Local-Only)
+1. 🧮 Smoke Counter
+
+    Track number of cigarettes smoked per day.
+
+    Allow user to manually log a cigarette.
+
+    Allow user to undo last entry.
+
+2. 🔥 Trigger Tracker
+
+    Log why the user smoked (stress, social, boredom, etc.).
+
+    User can select from predefined triggers or enter custom ones.
+
+    Show frequency of each trigger in a chart.
+
+3. 📈 Progress Dashboard
+
+    Line/bar chart of cigarettes per day over time (7d, 30d).
+
+    Chart of trigger categories over time.
+
+    Stats: Best streak, current streak, longest smoke-free duration, total cigarettes avoided.
+
+4. 💬 Motivational Quotes
+
+    Display one motivational quote on the home screen every time.
+
+    Allow saving favorite quotes to "Saved Quotes".
+
+    All quotes stored locally; user can also add custom quotes.
+
+5. 📝 Craving Journal
+
+    Log craving intensity (scale 1–5), mood, and notes.
+
+    Timestamped local entry.
+
+    Show trends in craving intensity over time.
+
+6. 🎯 Goals & Milestones
+
+    Set short and long-term goals (e.g., 7-day no smoking, 1 month).
+
+    Unlock badges on reaching goals.
+
+    Store progress and badges locally.
+
+7. 💸 Money Saved Tracker
+
+    Input cost per cigarette or pack.
+
+    Calculates money saved based on avoided cigarettes.
+
+    Display total saved and show what that money could buy.
+
+8. 🧘 Calm Down Tools
+
+    Breathing exercise screen with animation.
+
+    Short offline guided meditation audios (stored in app assets).
+
+    Craving emergency button → redirects to this screen.
+
+9. ⚙️ Settings
+
+    Customize:
+
+        Daily cigarette limit alert.
+
+        Notification reminders (local notifications only).
+
+        Dark/light mode toggle (stored locally).
+
+    Backup/export data as JSON to file.
+
+📱 Screen-by-Screen Breakdown
+1. Splash Screen
+
+    App name and logo.
+
+    Motivational quote fades in.
+
+2. Home Screen
+
+    Cigarette count today.
+
+    Big “+ Smoke” button to log.
+
+    Quick stats (money saved, best streak, cigarettes avoided).
+
+    Today's motivational quote.
+
+    Button links: [Journal] [Triggers] [Dashboard] [Calm Down]
+
+3. Log Smoke Screen
+
+    Tap to log cigarette.
+
+    Optional: select trigger (list or enter custom).
+
+    Optional: enter mood or note.
+
+    [Save] button adds to local DB.
+
+4. Trigger History Screen
+
+    Pie chart of triggers.
+
+    List view with counts.
+
+    Filter by date range.
+
+5. Dashboard Screen
+
+    Graph: Cigarettes smoked per day.
+
+    Graph: Triggers by category.
+
+    Stats: Best day, longest streak, avg per week/month.
+
+6. Craving Journal Screen
+
+    Entry list view (date, mood, intensity).
+
+    Button to log new craving.
+
+    Graph: craving intensity over time.
+
+7. Saved Quotes Screen
+
+    List of saved + custom quotes.
+
+    [Add Quote] option (title + text).
+
+    Delete/edit saved quotes.
+
+8. Calm Down Tools Screen
+
+    Breathing animation (inhale/exhale circle).
+
+    Play short audio meditations.
+
+    Motivational short text or gif.
+
+    "Still Craving? Write a journal" CTA.
+
+9. Goals & Badges Screen
+
+    Set/edit goals (no. of days, no. of smokes).
+
+    View earned badges (stored locally).
+
+    Progress bar toward goal.
+
+10. Settings Screen
+
+    Cost per pack/cigarette.
+
+    Notifications toggle.
+
+    Theme (dark/light/system).
+
+    Export data to JSON.
+
+    Reset data button (with confirmation).
+
+💾 Local Storage Design (Choose One)
+
+    Option A: @react-native-async-storage/async-storage
+    → Easy key-value storage for counts, lists, and config.
+
+    Option B: react-native-mmkv
+    → Fast & persistent storage for large sets of local data.
+
+    Option C: react-native-sqlite-storage
+    → Full SQLite backend for journal entries, quotes, smoke logs, triggers.
+
+🔔 Local Notification Features (No Internet)
+
+    Daily motivational message at a set time.
+
+    Reminder at high-risk times (e.g., after lunch, evening).
+
+    Reminder to log cravings/journal.
+
+    Alert if cigarette count crosses limit.
+
+🌈 UX Design Suggestions
+
+    Clean UI (white or dark background).
+
+    Encouraging language — always celebrate progress, never guilt trip.
+
+    Optional sounds and haptics for positive actions (e.g., logging a craving instead of smoking).
+
+    Fun reward screen on goals (fireworks animation, badge popup).
+
+🧪 Testing
+
+    No API calls.
+
+    Use mocks and local data for testing features.
+
+    Ensure all offline features persist through app restarts.
